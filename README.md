@@ -1,18 +1,37 @@
 
+
 #include<stdio.h>
 int main()
 {
     char operation;
     double n1,n2;
 
+    jump:
+
     printf("Enter your operator(+,-,*,/): ");
-    scanf("%c", &operation);
+    scanf(" %c", &operation);
+
+    if(operation != '+' && operation != '-' && operation != '*' && operation != '/')
+        {
+        printf("ERROR: Onerokom operator disen! thik kora lagbe... TRY AGAIN.\n\n");
+        goto jump;
+        }
 
     printf("Enter your 1st number to calculate: ");
-    scanf("%lf",&n1);
+     if (scanf("%lf", &n1) != 1)            // songkha er poribrte onno kichu dile abr goto te jabe
+     {
+        printf("ERROR: Apni number den ni! Shuru theke abar korun.\n\n");
+        while(getchar() != '\n');             // otirikto sob soranor jonno
+        goto jump; 
+     }
 
     printf("Enter your 2nd number to calculate: ");
-    scanf("%lf",&n2);
+
+     if (scanf("%lf", &n2) != 1) {
+        printf("ERROR: Apni number den ni! Shuru theke abar korun.\n\n");
+        while(getchar() != '\n');
+        goto jump; }
+
 
     switch(operation)
     {
@@ -33,12 +52,15 @@ int main()
         printf("%.1lf / %.1lf = %.1lf",n1,n2,n1/n2);
                  }
         else {
-            printf("Its impossible or  error");
+            printf("Its impossible or  error \n\n");
+            goto jump;
             }
         break;
 
     default :
-        printf("ERROR, You need to go to doctor to see the operators");
+        printf("ERROR, You need to go to doctor to see the operators ... TRY AGAIN: \n\n");
+
+        goto jump;
 
 
     }
