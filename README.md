@@ -10,6 +10,8 @@ int main()
 
     printf("Enter your operator(+,-,*,/): ");
     scanf(" %c", &operation);
+    printf("tomar operator er ASCII value: %d\n\n",operation);
+          // ASCII extra add korchi mandatory na
 
     if(operation != '+' && operation != '-' && operation != '*' && operation != '/')
         {
@@ -22,7 +24,7 @@ int main()
      {
         printf("ERROR: Apni number den ni! Shuru theke abar korun.\n\n");
         while(getchar() != '\n');             // otirikto sob soranor jonno
-        goto jump; 
+        goto jump;
      }
 
     printf("Enter your 2nd number to calculate: ");
